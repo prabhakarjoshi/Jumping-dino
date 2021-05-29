@@ -1,0 +1,130 @@
+*{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    background-color: rgb(211, 211, 211)
+}
+.container{
+    display: flex;
+    align-items: flex-end;
+    width: 80vw;
+    height: 10vh;
+    overflow: hidden;
+
+}
+.dino{
+    margin-left: 1vw;
+    background: url("dino.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 60px;
+    width: 60px;
+    z-index: 1;
+    
+}
+.obs{    
+    display: none;
+    background: url("cac.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    right: 0%;
+
+    
+}
+.cloud{
+    background: url("cloud.png");
+    display: none;
+    background-repeat: no-repeat;
+    background-size: 500%;
+    background-position: center;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 30vh;
+    right: 20vh;
+    animation: block 9s infinite linear;
+}
+.base{
+    position: absolute;
+    width: 1000vw;
+    left: -10vw;
+    border-top: 2px dashed black;
+}
+.score{
+    content: "0";
+    position: absolute;
+    top: 40vh;
+    right: 20vh;
+    font-size: 140%;
+}
+
+
+
+/* ////////////////////////////// */
+/* ANIMATION */
+
+
+
+@keyframes block{
+    0%{left: 100vw}
+    100%{left: 0vw}
+}
+@keyframes line{
+    100%{left:-700vw}
+    0%{left: 0vw}
+}
+@keyframes jump{
+    0%{top: 45vh;}
+    35%{top: 18vh;}
+    100%{top: 45vh;}
+}
+
+.movebase{
+    animation: line 99s infinite linear;
+}
+.movedino{
+    animation: jump 0.4s 1 linear;
+}
+.moveobs{
+    animation: block 2s infinite linear;
+}
+
+
+
+/* /////////////////////// */
+/* RESPONSIVE */
+
+
+
+@media  (max-width: 600px) , (max-height:600px) {
+    body {
+      background-color: lightblue;
+    }
+    .obs{
+        width: 30px;
+        height: 40px;
+    }
+    .dino{
+        width: 40px;
+        height: 40px;
+    }
+    .movedino{
+        animation-duration: 1.6s;
+    }
+    .cloud{
+        background-size: 300%;
+    }
+  }
